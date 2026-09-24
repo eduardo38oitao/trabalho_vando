@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Ranking - EstudaJunto{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <span class="tag">🏆 Reconhecimento</span>
+
+    <h1>Ranking de alunos</h1>
+
+    <p>
+        Quem mais ajuda a comunidade ganha mais pontos.
+    </p>
+
+</section>
+
+
+<section class="ranking">
+
+    {% for aluno in ranking %}
+
+    <div class="ranking-item">
+
+        <div class="position">
+            {% if loop.index == 1 %}
+                🥇
+            {% elif loop.index == 2 %}
+                🥈
+            {% elif loop.index == 3 %}
+                🥉
+            {% else %}
+                {{ loop.index }}
+            {% endif %}
+        </div>
+
+        <div class="avatar">
+            {{ aluno.nome[0] }}
+        </div>
+
+        <div class="student-name">
+            <strong>{{ aluno.nome }}</strong>
+            <span>Aluno colaborador</span>
+        </div>
+
+        <div class="points">
+            ⭐ {{ aluno.pontos }} pontos
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

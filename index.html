@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+{% block title %}EstudaJunto - Aprenda junto{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <span class="tag">🤝 Comunidade estudantil</span>
+
+        <h1>
+            Aprender é melhor
+            <span>junto.</span>
+        </h1>
+
+        <p>
+            Tire suas dúvidas, ajude outros alunos,
+            compartilhe materiais e evolua junto com
+            uma comunidade de estudantes.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="{{ url_for('listar_perguntas') }}" class="btn-primary">
+                Encontrar dúvidas
+            </a>
+
+            <a href="{{ url_for('nova_pergunta') }}" class="btn-secondary">
+                Fazer uma pergunta
+            </a>
+        </div>
+
+    </div>
+
+    <div class="hero-card">
+
+        <div class="floating-card card-one">
+            <span>🧮</span>
+            <div>
+                <strong>Matemática</strong>
+                <small>12 novas perguntas</small>
+            </div>
+        </div>
+
+        <div class="student-circle">
+            👨‍🎓
+        </div>
+
+        <div class="floating-card card-two">
+            <span>⭐</span>
+            <div>
+                <strong>+50 pontos</strong>
+                <small>Por ajudar um colega</small>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="stats">
+
+    <div>
+        <strong>2.450+</strong>
+        <span>Alunos</span>
+    </div>
+
+    <div>
+        <strong>5.800+</strong>
+        <span>Perguntas respondidas</span>
+    </div>
+
+    <div>
+        <strong>1.200+</strong>
+        <span>Materiais</span>
+    </div>
+
+    <div>
+        <strong>15</strong>
+        <span>Matérias</span>
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-header">
+        <div>
+            <span class="tag">Dúvidas recentes</span>
+            <h2>Ajude alguém hoje</h2>
+        </div>
+
+        <a href="{{ url_for('listar_perguntas') }}">
+            Ver todas →
+        </a>
+    </div>
+
+
+    <div class="question-grid">
+
+        {% for pergunta in perguntas %}
+
+        <article class="question-card">
+
+            <span class="subject">
+                {{ pergunta.materia }}
+            </span>
+
+            <h3>{{ pergunta.titulo }}</h3>
+
+            <div class="question-footer">
+
+                <span>👤 {{ pergunta.autor }}</span>
+                Entre ou cadastre-se
+                <span>💬 {{ pergunta.respostas }} respostas</span>
+
+            </div>
+
+            <a href="{{ url_for('listar_perguntas') }}" class="answer">
+                Quero ajudar →
+            </a>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<section class="help-section">
+
+    <div>
+        <span class="tag">Faça parte</spEntre ou cadastre-sean>
+
+        <h2>
+            Você pode saber algo
+            que outra pessoa precisa.
+        </h2>
+
+        <p>
+            Compartilhe seu conhecimento e ajude outros
+            estudantes. Cada resposta pode fazer a
+            diferença.
+        </p>
+
+        <a href="{{ url_for('nova_pergunta') }}" class="btn-primary">
+            Começar agora
+        </a>
+    </div>
+
+    <div class="help-icon">
+        💡
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-header">
+        <div>
+            <span class="tag">Materiais</span>
+            <h2>Conteúdos compartilhados</h2>
+        </div>
+
+        <a href="{{ url_for('listar_materiais') }}">
+            Ver materiais →
+        </a>
+    </div>
+
+    <div class="material-grid">
+
+        {% for material in materiais %}
+
+        <article class="material-card">
+
+            <div class="material-icon">
+                📖
+            </div>
+
+            <span>{{ material.materia }}</span>
+
+            <h3>{{ material.titulo }}</h3>
+
+            <p>{{ material.descricao }}</p>
+
+            <small>Compartilhado por {{ material.autor }}</small>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

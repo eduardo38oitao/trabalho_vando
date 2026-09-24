@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Nova pergunta - EstudaJunto{% endblock %}
+
+{% block content %}
+
+<section class="form-page">
+
+    <div class="form-intro">
+
+        <span class="tag">🤔 Está com dúvida?</span>
+
+        <h1>Faça uma pergunta</h1>
+
+        <p>
+            Explique sua dúvida e deixe outros alunos
+            ajudarem você.
+        </p>
+
+    </div>
+
+
+    <form method="POST" class="question-form">
+
+        <label>
+            Seu nome
+        </label>
+
+        <input
+            type="text"
+            name="autor"
+            placeholder="Digite seu nome"
+            required
+        >
+
+
+        <label>
+            Matéria
+        </label>
+
+        <select name="materia" required>
+
+            <option value="">Selecione uma matéria</option>
+            <option>Matemática</option>
+            <option>Português</option>
+            <option>História</option>
+            <option>Geografia</option>
+            <option>Biologia</option>
+            <option>Química</option>
+            <option>Física</option>
+            <option>Inglês</option>
+            <option>Filosofia</option>
+
+        </select>
+
+
+        <label>
+            Qual é sua dúvida?
+        </label>
+
+        <textarea
+            name="titulo"
+            rows="6"
+            placeholder="Explique sua dúvida..."
+            required
+        ></textarea>
+
+
+        <button class="btn-primary" type="submit">
+            Publicar pergunta
+        </button>
+
+    </form>
+
+</section>
+
+{% endblock %}

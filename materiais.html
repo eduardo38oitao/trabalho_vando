@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Materiais - EstudaJunto{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <span class="tag">📚 Biblioteca</span>
+
+    <h1>Materiais de estudo</h1>
+
+    <p>
+        Resumos e conteúdos compartilhados
+        pelos próprios alunos.
+    </p>
+
+</section>
+
+<section class="material-grid materials-page">
+
+    {% for material in materiais %}
+
+    <article class="material-card">
+
+        <div class="material-icon">
+            📘
+        </div>
+
+        <span>{{ material.materia }}</span>
+
+        <h2>{{ material.titulo }}</h2>
+
+        <p>{{ material.descricao }}</p>
+
+        <div class="material-author">
+            👤 {{ material.autor }}
+        </div>
+
+        <button class="btn-secondary">
+            Ver material
+        </button>
+
+    </article>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

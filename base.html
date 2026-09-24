@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}EstudaJunto{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+
+    <a href="{{ url_for('index') }}" class="logo">
+        <span>📚</span> EstudaJunto
+    </a>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('listar_perguntas') }}">Perguntas</a>
+        <a href="{{ url_for('listar_materiais') }}">Materiais</a>
+        <a href="{{ url_for('listar_ranking') }}">Ranking</a>
+    </nav>
+
+    <a href="{{ url_for('nova_pergunta') }}" class="btn-header">
+        Fazer pergunta
+    </a>
+
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    <div>
+        <strong>📚 EstudaJunto</strong>
+        <p>Alunos ajudando alunos a aprender.</p>
+    </div>
+
+    <div>
+        <p>Feito para estudantes, por estudantes 💙</p>
+    </div>
+</footer>
+
+</body>
+</html>

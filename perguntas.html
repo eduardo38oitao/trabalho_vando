@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Perguntas - EstudaJunto{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <span class="tag">Comunidade</span>
+
+    <h1>Perguntas dos alunos</h1>
+
+    <p>
+        Encontre uma dúvida que você consegue responder
+        ou publique sua própria pergunta.
+    </p>
+
+</section>
+
+
+<div class="search-box">
+
+    <form method="GET">
+
+        <input
+            type="text"
+            name="busca"
+            placeholder="🔎 Pesquisar por matéria ou pergunta..."
+        >
+
+        <button type="submit">
+            Pesquisar
+        </button>
+
+    </form>
+
+</div>
+
+
+<section class="question-list">
+
+    {% if perguntas %}
+
+        {% for pergunta in perguntas %}
+
+        <article class="question-large">
+
+            <div class="question-content">
+
+                <span class="subject">
+                    {{ pergunta.materia }}
+                </span>
+
+                <h2>{{ pergunta.titulo }}</h2>
+
+                <p>
+                    Pergunta feita por
+                    <strong>{{ pergunta.autor }}</strong>
+                </p>
+
+            </div>
+
+            <div class="question-action">
+
+                <span>💬 {{ pergunta.respostas }}</span>
+
+                <button>
+                    Responder
+                </button>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty">
+            <span>🔎</span>
+            <h2>Nenhuma pergunta encontrada</h2>
+            <p>Tente pesquisar outro termo.</p>
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}
